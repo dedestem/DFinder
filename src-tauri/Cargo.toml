@@ -1,0 +1,23 @@
+[package]
+name = "dfinder"
+version = "0.1.0"
+description = "An blazing fast file browser written in rust"
+authors = ["davidnet"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+
+[dependencies]
+tauri = { version = "1.0", features = ["updater", "shell-open"]  }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+home = "0.5.9"
+rayon = "1.10.0"
+walkdir = "2.5.0"
+
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

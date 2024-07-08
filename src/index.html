@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DFinder</title>
+
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="index.css" />
+        <script type="module" src="index.js" defer></script>
+    </head>
+
+    <body>
+        <nav role="navigation">
+            <div id="history">            
+                <button id="historyleft"><</button>
+                <button id="historyright">></button>
+            </div>
+            <input placeholder="Search or Path" id="pathbar" />
+        </nav>
+
+        <main role="main">
+            <div id="OpenDialog">
+                <h1 id="OpenDialogH1">FileName</h1>
+                <p id="OpenDialogP">Want to open FILENAME?</p>
+                <button id="OpenFileButton">Open</button>
+            </div>
+
+            <div id="FileList">
+                <table id="directoryTable">
+                    <thead>
+                        <tr>
+                            <th>Files</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="Homeui">
+                <nav>
+                    <button id="desktopbutton">Desktop</button>
+                    <button id="documentsbutton">Documents</button>
+                    <button id="musicbutton">Music</button>
+                    <button id="downloadsbutton">Downloads</button>
+                    <button id="picturesbutton">Pictures</button>
+                    <button id="videosbutton">Video's</button>
+                </nav>
+            </div>
+        </main>
+    </body>
+</html>
