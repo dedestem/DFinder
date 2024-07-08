@@ -35,7 +35,7 @@ Build for dev = Runs without making exe/installer
 cargo tauri dev
 ```
 
-Build installer .exe and .msi
+Build for installer .exe and .msi
 ```batch
 cargo tauri build
 ```
