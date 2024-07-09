@@ -9,10 +9,7 @@ Win11 \
 Win10 
 
 
-## Search functionality ideas: 
-   - Search on extension
-   - Search on filename
-   - Search on filename+extension
+<br>
 
 
 ##How to build | On Windows
@@ -39,3 +36,10 @@ Build for installer .exe and .msi
 ```batch
 cargo tauri build
 ```
+
+<br>
+<br>
+## Search functionality ideas: 
+   - Search on extension
+   - Search on filename
+   - Search on filename+extension
