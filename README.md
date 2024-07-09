@@ -9,13 +9,10 @@ Win11 \
 Win10 
 
 
-## Search functionality ideas: 
-   - Search on extension
-   - Search on filename
-   - Search on filename+extension
+<br>
 
 
-##How to build | On Windows
+<h1>How to build | On Windows</h1>
 
 Install git and rust and tauri.
 ```batch
@@ -35,7 +32,18 @@ Build for dev = Runs without making exe/installer
 cargo tauri dev
 ```
 
-Build installer .exe and .msi
+Build for installer .exe and .msi
 ```batch
 cargo tauri build
 ```
+
+<br>
+<br>
+## Search functionality ideas: 
+   <br>
+   - Search on extension
+   <br>
+   - Search on filename
+   <br>
+   - Search on filename+extension
+   <br>
