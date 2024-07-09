@@ -3,9 +3,21 @@ const { invoke } = window.__TAURI__.tauri;
 
 // HTML elements
 const elements = {
-  pathbar: document.getElementById("pathbar"),
+  //Navbar UI
+  homebutton: document.getElementById("HomeButton"),
   historyleftbut: document.getElementById("historyleft"),
   historyrightbut: document.getElementById("historyright"),
+  pathbar: document.getElementById("pathbar"),
+
+  //HomeUI
+  desktopbutton: document.getElementById('desktopbutton'),
+  documentsbutton: document.getElementById('documentsbutton'),
+  musicbutton: document.getElementById('musicbutton'),
+  downloadsbutton: document.getElementById('downloadsbutton'),
+  picturesbutton: document.getElementById('picturesbutton'),
+  videosbutton: document.getElementById('videosbutton'),
+
+  //Content display
   opendialog: document.getElementById('OpenDialog'),
   opendialogh1: document.getElementById('OpenDialogH1'),
   opendialogp: document.getElementById('OpenDialogP'),
@@ -14,12 +26,8 @@ const elements = {
   filelist: document.getElementById('FileList'),
   homeui: document.getElementById('Homeui'),
 
-  desktopbutton: document.getElementById('desktopbutton'),
-  documentsbutton: document.getElementById('documentsbutton'),
-  musicbutton: document.getElementById('musicbutton'),
-  downloadsbutton: document.getElementById('downloadsbutton'),
-  picturesbutton: document.getElementById('picturesbutton'),
-  videosbutton: document.getElementById('videosbutton'),
+  //Test
+  testbutton: document.getElementById("Testbutton"),
 };
 
 // History tracking
@@ -28,23 +36,33 @@ let currentHistoryIndex = -1;
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  elements.pathbar.addEventListener("input", handlePathbarInputChange);
+  //Nav UI
+  elements.homebutton.addEventListener("click", homebuttonhandle);
   elements.historyleftbut.addEventListener("click", historyleft);
   elements.historyrightbut.addEventListener("click", historyright);
-  elements.opendialog_openfilebutton.addEventListener("click", openFile);
+  elements.pathbar.addEventListener("input", handlePathbarInputChange);
 
+  //Home UI
   elements.desktopbutton.addEventListener("click", desktopbuttonhandle);
   elements.documentsbutton.addEventListener("click", documentsbuttonhandle);
   elements.musicbutton.addEventListener("click", musicbuttonhandle);
   elements.downloadsbutton.addEventListener("click", downloadsbuttonhandle);
   elements.picturesbutton.addEventListener("click", picturesbuttonhandle);
   elements.videosbutton.addEventListener("click", videosbuttonhandle);
-  
+
+  //Etc
+  elements.testbutton.addEventListener("click", searchtest);
+  elements.opendialog_openfilebutton.addEventListener("click", openFile);
+
   // Initialize defaults
   navigateToInitialPath("");
   showhomeui();
 });
 
+
+function searchtest() {
+  invoke('search', { path: 'C:/', query: 'Test' });
+}
 
 //HomeUI Buttons
 async function desktopbuttonhandle() {
@@ -77,6 +95,11 @@ async function videosbuttonhandle() {
   changePathbarValue(homepath + "/Videos");
 };
 
+//navbar Buttons
+function homebuttonhandle() {
+  console.log("HOME PRESSED");
+  changePathbarValue("");
+}
 
 // Navigate history left
 async function historyleft() {

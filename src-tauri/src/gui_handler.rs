@@ -1,7 +1,9 @@
 #![cfg_attr(all(not(debug_assertions), target_os = "windows"), windows_subsystem = "windows")]
 use crate::file_system;
 use crate::systeminfo;
+use crate::search;
 use std::fs;
+
 
 #[tauri::command]
 fn path_exists(path: String) -> String {
@@ -54,6 +56,14 @@ fn get_home_path() -> Option<String> {
     systeminfo::gethomdir()
 }
 
+#[tauri::command]
+fn search(path: String, query: String) {
+    let pathstr: &str = &path;
+    let querystr: &str = &query;
+    search::search(pathstr, querystr);
+}
+
+
 pub fn start() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
@@ -63,7 +73,8 @@ pub fn start() {
             list_dir,
             get_directory_size,
             print_metadata,
-            get_home_path
+            get_home_path,
+            search
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");

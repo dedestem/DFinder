@@ -9,10 +9,6 @@ fn main() {
     println!("Running Version 0.1.5");
     println!("Running tests!");
     systeminfo::iswindows();
-    //let dir = "C:/";
-    //let query = "Test";
-
-    //search::main(dir, query);
     println!("Starting Main Program");
     gui_handler::start();
 }

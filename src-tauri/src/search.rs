@@ -18,7 +18,7 @@ fn search_files_and_directories_parallel(dir: &str, query: &str) -> Vec<PathBuf>
         .collect()
 }
 
-pub fn main(dir: &str, query: &str) {
+pub fn search(dir: &str, query: &str) {
     println!("Searching for '{}' in '{}'", query, dir);
 
     let entries = search_files_and_directories_parallel(dir, query);
