@@ -34,6 +34,7 @@ const elements = {
 let pathHistory = [];
 let currentHistoryIndex = -1;
 
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   //Nav UI
@@ -59,9 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
   showhomeui();
 });
 
-
-function searchtest() {
-  invoke('search', { path: 'C:/', query: 'Test' });
+async function searchtest() {
+  Search("C:/", "Test");
 }
 
 //HomeUI Buttons
@@ -100,6 +100,14 @@ function homebuttonhandle() {
   console.log("HOME PRESSED");
   changePathbarValue("");
 }
+
+async function Search(path, query) {
+  const result = await invoke('search', { path, query });
+  console.log(result);
+  DisplaySearchResults(result);
+  showFileList();
+}
+
 
 // Navigate history left
 async function historyleft() {
@@ -151,6 +159,29 @@ async function handlePathbarInputChange(event) {
     alert(`Error handling path change: ${error.message}`);
   }
 }
+
+//Display Search Results
+function DisplaySearchResults(contents) {
+  elements.tableBody.innerHTML = ''; // Clear existing table rows
+
+  contents.forEach(Result => {
+    const button = document.createElement('button');
+    button.textContent = Result;
+    button.addEventListener('click', () => {
+      const nextPath = `${Result}`;
+      changePathbarValue(nextPath);
+    });
+
+    const cell = document.createElement('td');
+    cell.appendChild(button);
+
+    const row = document.createElement('tr');
+    row.appendChild(cell);
+
+    elements.tableBody.appendChild(row);
+  });
+}
+
 
 // Handle opening a file
 async function openFile() {

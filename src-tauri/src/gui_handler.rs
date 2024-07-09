@@ -3,7 +3,7 @@ use crate::file_system;
 use crate::systeminfo;
 use crate::search;
 use std::fs;
-
+use std::path::PathBuf;
 
 #[tauri::command]
 fn path_exists(path: String) -> String {
@@ -56,11 +56,13 @@ fn get_home_path() -> Option<String> {
     systeminfo::gethomdir()
 }
 
-#[tauri::command]
-fn search(path: String, query: String) {
+#[tauri::command(async)]
+fn search(path: String, query: String) -> Vec<PathBuf> {
     let pathstr: &str = &path;
     let querystr: &str = &query;
-    search::search(pathstr, querystr);
+    let out = search::search(pathstr, querystr);
+    println!("Done searching");
+    out
 }
 
 
