@@ -12,7 +12,7 @@ Win10
 <br>
 
 
-##How to build | On Windows
+<h1>How to build | On Windows</h1>
 
 Install git and rust and tauri.
 ```batch
