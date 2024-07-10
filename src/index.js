@@ -247,10 +247,26 @@ async function handleFile(path) {
   }
 }
 
-// Handle invalid path
+let searchtimeout;
+
 function handleInvalidPath(path) {
-  elements.pathbar.style.color = 'Blue';
-  Search("C:/", path);
+  console.log(path.charAt(1));
+  if (path.charAt(1) === ':' && path.charAt(2) === '/') {
+    console.log("Not Searching");
+    elements.pathbar.style.color = 'Red';
+  } else {
+    console.log("Waiting to Search");
+
+    // Clear any existing timeout
+    clearTimeout(searchtimeout);
+
+    // Set a new timeout to execute the search after 1 second
+    searchtimeout = setTimeout(() => {
+      console.log("Searching");
+      elements.pathbar.style.color = 'Blue';
+      Search("C:/", path);
+    }, 1000);
+  }
 }
 
 // Update history and pathbar value
