@@ -101,14 +101,6 @@ function homebuttonhandle() {
   changePathbarValue("");
 }
 
-async function Search(path, query) {
-  const result = await invoke('search', { path, query });
-  console.log(result);
-  DisplaySearchResults(result);
-  showFileList();
-}
-
-
 // Navigate history left
 async function historyleft() {
   if (currentHistoryIndex > 0) {
@@ -158,6 +150,15 @@ async function handlePathbarInputChange(event) {
     console.error("Error handling path change:", error);
     alert(`Error handling path change: ${error.message}`);
   }
+}
+
+
+// Process functions
+async function Search(path, query) {
+  const result = await invoke('search', { path, query });
+  console.log(result);
+  DisplaySearchResults(result);
+  showFileList();
 }
 
 //Display Search Results
