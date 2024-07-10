@@ -133,3 +133,22 @@ nav > input {
 #Homeui > .leftspacing30px {
     padding-left: 30px;
 }
+
+#Homeui > .leftspacing30px > #RecentDiv {
+    background-color: rgb(117, 18, 46);
+    width: 200px;
+    height: 200px;
+
+    padding: 12px;
+    margin-top: 40px;
+
+    border-top-left-radius:12px;
+    border-top-right-radius:12px;
+    border-bottom-left-radius:12px;
+    border-bottom-right-radius:12px;
+}
+
+#Homeui > .leftspacing30px > #RecentDiv > h1 {
+    text-align: center;
+    margin-top: -5px;
+}
