@@ -25,9 +25,6 @@ const elements = {
   tableBody: document.getElementById('tableBody'),
   filelist: document.getElementById('FileList'),
   homeui: document.getElementById('Homeui'),
-
-  //Test
-  testbutton: document.getElementById("Testbutton"),
 };
 
 // History tracking
@@ -52,16 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.videosbutton.addEventListener("click", videosbuttonhandle);
 
   //Etc
-  elements.testbutton.addEventListener("click", searchtest);
   elements.opendialog_openfilebutton.addEventListener("click", openFile);
 
   // Initialize defaults
   changePathbarValue("", true); 
 });
-
-async function searchtest() {
-  Search("C:/", "Test");
-}
 
 //HomeUI Buttons
 async function desktopbuttonhandle() {
@@ -154,6 +146,16 @@ async function handlePathbarInputChange(event) {
 
 // Process functions
 async function Search(path, query) {
+  elements.tableBody.innerHTML = '';
+  showFileList();
+  const cell = document.createElement('td');
+  cell.innerText = "Searching for " + query + " in " + path;
+
+
+  const row = document.createElement('tr');
+  row.appendChild(cell);
+
+  elements.tableBody.appendChild(row);
   const result = await invoke('search', { path, query });
   console.log(result);
   DisplaySearchResults(result);
@@ -263,6 +265,7 @@ function handleInvalidPath(path) {
     // Set a new timeout to execute the search after 1 second
     searchtimeout = setTimeout(() => {
       console.log("Searching");
+      
       elements.pathbar.style.color = 'Blue';
       Search("C:/", path);
     }, 1000);

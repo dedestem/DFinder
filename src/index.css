@@ -79,7 +79,6 @@ nav > input {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 2em;
     gap: 80px;
 }
 
@@ -125,3 +124,12 @@ nav > input {
 }
 
 /*HomeUI*/
+
+#Homeui {
+    font-family: sans-serif;
+    color: white;
+}
+
+#Homeui > .leftspacing30px {
+    padding-left: 30px;
+}
