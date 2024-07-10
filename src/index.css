@@ -1,7 +1,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0);
     font-family: sans-serif;
 }
 
@@ -49,7 +49,7 @@ nav > #history > button {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background-color: white;
+    
     border: 2px solid #000;
     color: #000; 
     border-radius: 50%;

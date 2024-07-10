@@ -66,6 +66,7 @@ fn search(path: String, query: String) -> Vec<PathBuf> {
 }
 
 
+
 pub fn start() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![

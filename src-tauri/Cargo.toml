@@ -1,6 +1,6 @@
 [package]
 name = "dfinder"
-version = "0.1.5"
+version = "0.2.0"
 description = "An blazing fast file browser written in rust"
 authors = ["davidnet"]
 edition = "2021"
