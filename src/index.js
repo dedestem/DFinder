@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.opendialog_openfilebutton.addEventListener("click", openFile);
 
   // Initialize defaults
-  navigateToInitialPath("");
+  changePathbarValue("", true); 
   showhomeui();
 });
 
@@ -350,12 +350,3 @@ function setCookie(name, value, daysToLive) {
   document.cookie = cookie;
 }
 
-// Navigate to initial path
-async function navigateToInitialPath(initialPath) {
-  try {
-    await changePathbarValue(initialPath, true);
-  } catch (error) {
-    console.error("Error navigating to initial path:", error);
-    alert(`Error navigating to initial path: ${error.message}`);
-  }
-}
