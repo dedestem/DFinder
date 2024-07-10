@@ -6,7 +6,7 @@
   },
   "package": {
     "productName": "dfinder",
-    "version": "0.0.0"
+    "version": "0.1.5"
   },
   "tauri": {
     "allowlist": {
@@ -37,12 +37,6 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ]
-    },
-    "updater": {
-      "active": true,
-      "endpoints": ["https://server.davidnet.net/dfinder/update/{{target}}/{{current_version}}"],
-      "dialog": true,
-      "pubkey": "-----BEGIN PUBLIC KEY-----\nYOUR_PUBLIC_KEY_HERE\n-----END PUBLIC KEY-----"
     }
   }
 }
