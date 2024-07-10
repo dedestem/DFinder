@@ -9,6 +9,10 @@ Win11 \
 Win10 
 
 
+### Installer notice
+When using .msi you need admin \
+When using .exe you dont need admin
+
 <br>
 
 
