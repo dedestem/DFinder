@@ -1,6 +1,9 @@
 // Initialize Tauri API
 const { invoke } = window.__TAURI__.tauri;
 
+// Getting modules
+import { addTorecent, getrecent } from './recent.js';
+
 // HTML elements
 const elements = {
   //Navbar UI
@@ -86,10 +89,13 @@ async function videosbuttonhandle() {
   changePathbarValue(homepath + "/Videos");
 };
 
+
+
 //navbar Buttons
 function homebuttonhandle() {
   console.log("HOME PRESSED");
   changePathbarValue("");
+  console.log(pathHistory);
 }
 
 // Navigate history left
@@ -128,8 +134,10 @@ async function handlePathbarInputChange(event) {
     const pathType = await invoke("path_type", { path });
 
     if (pathType === "Folder") {
+      addTorecent(path);
       await handleFolder(path);
     } else if (pathType === "File") {
+      addTorecent(path);
       await handleFile(path);
     } else {
       handleInvalidPath(path);
@@ -144,7 +152,15 @@ async function handlePathbarInputChange(event) {
 }
 
 
+
+
+
+
+
 // Process functions
+
+
+//Search functions
 async function Search(path, query) {
   elements.tableBody.innerHTML = '';
   showFileList();
@@ -161,6 +177,7 @@ async function Search(path, query) {
   DisplaySearchResults(result);
   showFileList();
 }
+
 
 //Display Search Results
 function DisplaySearchResults(contents) {
@@ -199,6 +216,7 @@ async function openFile() {
     alert(`Error opening file: ${error.message}`);
   }
 }
+
 
 // Handle folder navigation
 async function handleFolder(path) {
@@ -303,6 +321,7 @@ async function updateUIForPath(path) {
       const contents = await invoke("list_dir", { path });
       displayDirectoryContents(contents);
     } else if (pathType === "File") {
+      
       const filename = path.split(/[\/\\]/).pop();
       elements.opendialogh1.textContent = filename;
       elements.opendialogp.textContent = `Want to open ${filename}?`;
@@ -334,6 +353,27 @@ function showhomeui() {
   elements.filelist.style.display = "none";
   elements.opendialog.style.display = "none";
   elements.homeui.style.display = "block";
+
+  //Collect data
+  const recentpaths = getrecent();
+  console.log(recentpaths);
+
+  //Remove old data
+  const buttons = document.getElementById('RecentDiv').getElementsByTagName('button');
+  while (buttons.length > 0) {
+      buttons[0].remove();
+  }
+
+  //Insert new data
+  recentpaths.forEach(value => {
+    const b = document.createElement('button');
+    b.textContent = value;
+    document.getElementById("RecentDiv").appendChild(b);
+    b.addEventListener('click', () => {
+      changePathbarValue(value, false);
+    });
+  });
+
 }
 
 // Update history with current path
