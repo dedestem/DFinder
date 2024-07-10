@@ -16,6 +16,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Cache Rust dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+
     - name: Set up Rust
       uses: actions-rs/toolchain@v1
       with:
@@ -23,10 +33,21 @@ jobs:
         profile: minimal
         override: true
 
-    - name: Build
-      run: cargo build --verbose
+    - name: Install Tauri CLI
+      run: cargo install tauri-cli
+
+    - name: Cache Tauri dependencies
+      uses: actions/cache@v3
+      with:
+        path: src-tauri/node_modules
+        key: ${{ runner.os }}-tauri-${{ hashFiles('src-tauri/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-tauri-
+
+    - name: Build with Tauri
+      run: cargo tauri build --verbose
       working-directory: src-tauri
 
-    - name: Run tests
-      run: cargo test --verbose
-      working-directory: src-tauri
+    - name: Run tests with Tauri
+      run: cargo tauri test --verbose
+      working-directory: src-tauri 
