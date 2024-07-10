@@ -23,17 +23,10 @@ jobs:
         profile: minimal
         override: true
 
-    - name: List dir
-      run: ls
-      
-    - name: Change directory to src-tauri
-      run: cd src-tauri
-
-    - name: List dir
-      run: ls
-
     - name: Build
       run: cargo build --verbose
+      working-directory: src-tauri
 
     - name: Run tests
-      run: cargo test --verbose 
+      run: cargo test --verbose
+      working-directory: src-tauri
