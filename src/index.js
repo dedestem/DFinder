@@ -7,6 +7,7 @@ import { addTorecent, getrecent } from './recent.js';
 // HTML elements
 const elements = {
   //Navbar UI
+  settingsbutton: document.getElementById("SettingsButton"),
   homebutton: document.getElementById("HomeButton"),
   historyleftbut: document.getElementById("historyleft"),
   historyrightbut: document.getElementById("historyright"),
@@ -38,6 +39,7 @@ let currentHistoryIndex = -1;
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   //Nav UI
+  elements.settingsbutton.addEventListener("click", settingsbuttonhandle);
   elements.homebutton.addEventListener("click", homebuttonhandle);
   elements.historyleftbut.addEventListener("click", historyleft);
   elements.historyrightbut.addEventListener("click", historyright);
@@ -59,6 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //HomeUI Buttons
+async function settingsbuttonhandle() {
+  if (window.popup) {
+    window.popup.close();
+  } else {
+    window.popup = window.open("settings", "_blank", "width=400,height=500");
+  }
+  
+}
+
 async function desktopbuttonhandle() {
   const homepath = await invoke("get_home_path");
   changePathbarValue(homepath + "/Desktop");
