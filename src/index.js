@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize defaults
   changePathbarValue("", true); 
-  showhomeui();
 });
 
 async function searchtest() {
