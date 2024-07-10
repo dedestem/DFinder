@@ -141,7 +141,7 @@ async function handlePathbarInputChange(event) {
     } else if (pathType === "File") {
       await handleFile(path);
     } else {
-      handleInvalidPath();
+      handleInvalidPath(path);
     }
 
     updateHistory(path);
@@ -249,8 +249,9 @@ async function handleFile(path) {
 }
 
 // Handle invalid path
-function handleInvalidPath() {
-  elements.pathbar.style.color = 'red';
+function handleInvalidPath(path) {
+  elements.pathbar.style.color = 'Blue';
+  Search("C:/", path);
 }
 
 // Update history and pathbar value
