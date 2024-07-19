@@ -3,6 +3,7 @@ const { invoke } = window.__TAURI__.tauri;
 
 // Getting modules
 import { addTorecent, getrecent } from './recent.js';
+import { changesetting, getsettings, resetsettings } from './settings.js';
 
 // HTML elements
 const elements = {
@@ -467,3 +468,7 @@ function setCookie(name, value, daysToLive) {
   document.cookie = cookie;
 }
 
+
+
+
+//Settings UI
