@@ -6,7 +6,7 @@ import { addTorecent, getrecent } from './recent.js';
 
 // HTML elements
 const elements = {
-  //Navbar UI
+  //NavbarUI
   settingsbutton: document.getElementById("SettingsButton"),
   homebutton: document.getElementById("HomeButton"),
   historyleftbut: document.getElementById("historyleft"),
@@ -14,6 +14,7 @@ const elements = {
   pathbar: document.getElementById("pathbar"),
 
   //HomeUI
+  homeui: document.getElementById('Homeui'),
   desktopbutton: document.getElementById('desktopbutton'),
   documentsbutton: document.getElementById('documentsbutton'),
   musicbutton: document.getElementById('musicbutton'),
@@ -21,18 +22,25 @@ const elements = {
   picturesbutton: document.getElementById('picturesbutton'),
   videosbutton: document.getElementById('videosbutton'),
 
-  //Content display
+  //OpenUI
   opendialog: document.getElementById('OpenDialog'),
   opendialogh1: document.getElementById('OpenDialogH1'),
   opendialogp: document.getElementById('OpenDialogP'),
   opendialog_openfilebutton: document.getElementById('OpenFileButton'),
+  
+  //FilelistUI
   tableBody: document.getElementById('tableBody'),
   filelist: document.getElementById('FileList'),
-  homeui: document.getElementById('Homeui'),
+
+  //SettingsUI
   settingsui: document.getElementById('Settingsui'),
-
-  
-
+  generalbutton: document.getElementById('generalbutton'),
+  uibutton: document.getElementById('uibutton'),
+  aboutbutton: document.getElementById('aboutbutton'),
+  about: document.getElementById('about'),
+  ui: document.getElementById('ui'),
+  general: document.getElementById('general'),
+  webviewinfo: document.getElementById('Webviewinfo'),
 };
 
 // History tracking
@@ -60,15 +68,37 @@ document.addEventListener('DOMContentLoaded', () => {
   //Opendialog
   elements.opendialog_openfilebutton.addEventListener("click", openFile);
 
+  //Settings UI
+  elements.generalbutton.addEventListener("click", opensettingsgeneral)
+  elements.uibutton.addEventListener("click", opensettingsui)
+  elements.aboutbutton.addEventListener("click", opensettingsabout)
+
   // Initialize defaults
   changePathbarValue("", true); 
 });
 
-//HomeUI Buttons
-async function settingsbuttonhandle() {
-  showSettingsUI();
+// Settings UI Buttons
+async function opensettingsgeneral() {
+    elements.general.style.display = "block";
+    elements.ui.style.display = "none";
+    elements.about.style.display = "none";
 }
 
+async function opensettingsui() {
+  elements.general.style.display = "none";
+  elements.ui.style.display = "block";
+  elements.about.style.display = "none";
+}
+
+async function opensettingsabout() {
+  elements.general.style.display = "none";
+  elements.ui.style.display = "none";
+  elements.about.style.display = "block";
+  console.log(navigator.userAgent);
+  elements.webviewinfo.innerText = navigator.userAgent
+}
+
+//HomeUI Buttons
 async function desktopbuttonhandle() {
   const homepath = await invoke("get_home_path");
   changePathbarValue(homepath + "/Desktop");
@@ -102,6 +132,10 @@ async function videosbuttonhandle() {
 
 
 //navbar Buttons
+async function settingsbuttonhandle() {
+  showSettingsUI();
+}
+
 function homebuttonhandle() {
   console.log("HOME PRESSED");
   changePathbarValue("");
@@ -183,7 +217,6 @@ async function Search(path, query) {
 
   elements.tableBody.appendChild(row);
   const result = await invoke('search', { path, query });
-  console.log(result);
   DisplaySearchResults(result);
   showFileList();
 }
@@ -280,6 +313,9 @@ async function handleFile(path) {
 let searchtimeout;
 
 function handleInvalidPath(path) {
+  if (path == null) {
+    return;
+}
   console.log(path.charAt(1));
   if (path.charAt(1) === ':' && path.charAt(2) === '/') {
     console.log("Not Searching");
@@ -366,6 +402,8 @@ function showSettingsUI() {
   elements.opendialog.style.display = "none";
   elements.homeui.style.display = "none";
   elements.settingsui.style.display = "block";
+
+  opensettingsgeneral();
 }
 
 function showhomeui() {
@@ -376,7 +414,6 @@ function showhomeui() {
 
   //Collect data
   const recentpaths = getrecent();
-  console.log(recentpaths);
 
   //Remove old data
   const buttons = document.getElementById('RecentDiv').getElementsByTagName('button');

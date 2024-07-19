@@ -76,10 +76,31 @@
 
             <div id="Settingsui">
                 <nav>
-                    <button>Button that doesnt do anything</button>
+                    <button id="generalbutton">General</button>
+                    <button id="uibutton">UI</button>
+                    <button id="aboutbutton">About</button>
                 </nav>
                 <div class="leftspacing30px">
-                    
+                    <div id="general">
+                        <p>General</p>
+                    </div>
+                    <div id="ui">
+                        <p>UI</p>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <p>Background color:</p>
+                            <input type="color" id="backcolor" value="#ff0000">
+                        </div>
+                    </div>
+                    <div id="about">
+                        <p>About</p>
+                        <br>
+                        <p>Welcome to version 0.2.0</p>
+                        <br>
+                        <p>Running on:</p>
+                        <p id="Webviewinfo">Error while loading webview info</p>
+                    </div>
                 </div>
             </div>
         </main>

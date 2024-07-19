@@ -124,17 +124,6 @@ nav > input {
 }
 
 /*HomeUI*/
-#Homeui .leftspacing30px {
-    padding-left: 30px;
-    font-family: sans-serif;
-    color: white;
-}
-
-#Homeui > .leftspacing30px > #Homeboxes{
-    font-family: sans-serif;
-    color: white;
-}
-
 #Homeui > .leftspacing30px > #Homeboxes > #RecentDiv {
     background-color: rgb(49, 49, 49);
     width: 300px;
@@ -166,4 +155,29 @@ nav > input {
     outline: none;
 
     color: white;
+}
+
+/* Settings UI */
+#ui > .row > input {
+    background-color: rgba(0,0,0,0);
+    border-style: none;
+}
+
+/*Global style*/
+/* This transfer is because of the settings that will come in UI changement */
+
+p {
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.row {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.leftspacing30px {
+    padding-left: 30px;
 }

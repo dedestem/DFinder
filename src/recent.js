@@ -13,7 +13,6 @@ export function addTorecent(valueToInsert) {
 };
 
 export function getrecent() {
-    console.log(recent);
     return recent;
 };
 
