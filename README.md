@@ -18,6 +18,16 @@ When using .exe you dont need admin
 
 <h1>How to build | On Windows</h1>
 
+<br>
+<br>
+
+   WARNING SOURCECODE IS MOST TIMES STABLE
+   IF NOT USE AND RELEASE SOURCECODE
+   AND DO NOT CLONE
+
+<br>
+<br>
+
 Install git and rust and tauri.
 ```batch
 winget install --id Git.Git -e --source winget
