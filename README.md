@@ -18,8 +18,6 @@ When using .exe you dont need admin
 
 <h1>How to build | On Windows</h1>
 
-<br>
-<br>
 
    WARNING SOURCECODE IS MOST TIMES STABLE.<br>
    IF NOT USE AND RELEASE SOURCECODE<br>
