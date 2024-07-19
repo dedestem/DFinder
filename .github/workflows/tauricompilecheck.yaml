@@ -33,7 +33,7 @@ jobs:
           ${{ runner.os }}-cargo-
 
     - name: Install Tauri CLI
-      run: cargo install tauri-bundler
+      run: cargo install tauri-cli
 
     - name: Build Tauri App
       run: cargo tauri build
