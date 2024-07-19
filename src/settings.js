@@ -14,3 +14,15 @@ export function resetsettings() {
 
 
 //WINDOW.ONLOAD HERE TOO INSERT DEFAULT SETTINGS WHEN NO SETTINGS
+
+
+
+
+
+// Settings ideas
+//
+// Text color
+// Background Color
+// Show file hash
+// Clear history
+//
