@@ -43,7 +43,7 @@ cargo tauri build
 
 <br>
 <br>
-## Search functionality ideas: 
+<h1>Search functionality ideas:</h1> 
    <br>
    - Search on extension
    <br>
