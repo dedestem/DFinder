@@ -47,7 +47,3 @@ cargo tauri build
    <br>
    - Search on extension
    <br>
-   - Search on filename
-   <br>
-   - Search on filename+extension
-   <br>
