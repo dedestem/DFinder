@@ -1,4 +1,4 @@
-name: Build Tauri App
+name: Tauri compile check
 
 on:
   push:
@@ -17,9 +17,11 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up Rust
-      uses: actions/setup-rust@v1
+      uses: actions-rs/toolchain@v2
       with:
-        rust-version: '1.68' # Specify the Rust version required by your Tauri app
+        toolchain: '1.68.0'  # Specify the Rust version required by your Tauri app
+        components: 'rustfmt' # Add additional components if needed
+        profile: 'default'
 
     - name: Cache Cargo
       uses: actions/cache@v3
