@@ -28,7 +28,7 @@ cargo install tauri-cli
 Clone and init
 ```batch
 git clone https://github.com/dedestem/dfinder
-cd src-tauri
+cd dfinder/src-tauri
 ```
 
 Build for dev = Runs without making exe/installer
