@@ -28,7 +28,8 @@ const elements = {
   opendialogh1: document.getElementById('OpenDialogH1'),
   opendialogp: document.getElementById('OpenDialogP'),
   opendialog_openfilebutton: document.getElementById('OpenFileButton'),
-  
+  opendialog_openfilehash: document.getElementById('openfilehash'),
+
   //FilelistUI
   tableBody: document.getElementById('tableBody'),
   filelist: document.getElementById('FileList'),
@@ -304,6 +305,7 @@ async function handleFile(path) {
 
     elements.opendialogh1.textContent = filename;
     elements.opendialogp.textContent = `Want to open ${filename}?`;
+    elements.opendialog_openfilehash.textContent = await invoke("get_file_hash", { path });
     showOpenDialog();
   } catch (error) {
     console.error("Error handling file:", error);
