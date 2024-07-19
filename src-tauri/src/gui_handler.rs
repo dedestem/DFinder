@@ -65,6 +65,16 @@ fn search(path: String, query: String) -> Vec<PathBuf> {
     out
 }
 
+#[tauri::command]
+fn get_file_hash(path: String) -> String {
+    match file_system::file_hash(&path) {
+        Ok(value) => value,
+        Err(e) => {
+            eprintln!("Collecting hash encountered an error while battling the opponement used: {}", e);
+            String::new()
+        },
+    }
+}
 
 
 pub fn start() {
@@ -77,7 +87,8 @@ pub fn start() {
             get_directory_size,
             print_metadata,
             get_home_path,
-            search
+            search,
+            get_file_hash
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");
