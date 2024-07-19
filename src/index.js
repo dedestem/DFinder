@@ -29,6 +29,10 @@ const elements = {
   tableBody: document.getElementById('tableBody'),
   filelist: document.getElementById('FileList'),
   homeui: document.getElementById('Homeui'),
+  settingsui: document.getElementById('Settingsui'),
+
+  
+
 };
 
 // History tracking
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.picturesbutton.addEventListener("click", picturesbuttonhandle);
   elements.videosbutton.addEventListener("click", videosbuttonhandle);
 
-  //Etc
+  //Opendialog
   elements.opendialog_openfilebutton.addEventListener("click", openFile);
 
   // Initialize defaults
@@ -62,12 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //HomeUI Buttons
 async function settingsbuttonhandle() {
-  if (window.popup) {
-    window.popup.close();
-  } else {
-    window.popup = window.open("settings", "_blank", "width=400,height=500");
-  }
-  
+  showSettingsUI();
 }
 
 async function desktopbuttonhandle() {
@@ -351,6 +350,7 @@ function showFileList() {
   elements.filelist.style.display = "block";
   elements.opendialog.style.display = "none";
   elements.homeui.style.display = "none";
+  elements.settingsui.style.display = "none";
 }
 
 // Show open dialog and hide file list
@@ -358,12 +358,21 @@ function showOpenDialog() {
   elements.filelist.style.display = "none";
   elements.opendialog.style.display = "block";
   elements.homeui.style.display = "none";
+  elements.settingsui.style.display = "none";
+}
+
+function showSettingsUI() {
+  elements.filelist.style.display = "none";
+  elements.opendialog.style.display = "none";
+  elements.homeui.style.display = "none";
+  elements.settingsui.style.display = "block";
 }
 
 function showhomeui() {
   elements.filelist.style.display = "none";
   elements.opendialog.style.display = "none";
   elements.homeui.style.display = "block";
+  elements.settingsui.style.display = "none";
 
   //Collect data
   const recentpaths = getrecent();

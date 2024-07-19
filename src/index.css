@@ -1,7 +1,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    background-color: rgba(128, 128, 128, 1);
+    background-color: rgb(36, 35, 35);
     font-family: sans-serif;
 }
 
@@ -126,6 +126,8 @@ nav > input {
 /*HomeUI*/
 #Homeui .leftspacing30px {
     padding-left: 30px;
+    font-family: sans-serif;
+    color: white;
 }
 
 #Homeui > .leftspacing30px > #Homeboxes{
@@ -134,7 +136,7 @@ nav > input {
 }
 
 #Homeui > .leftspacing30px > #Homeboxes > #RecentDiv {
-    background-color: rgb(75, 52, 59);
+    background-color: rgb(49, 49, 49);
     width: 300px;
     height: 300px;
 
