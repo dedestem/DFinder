@@ -171,6 +171,11 @@ p {
     color: rgb(255, 255, 255);
 }
 
+h1 {
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+
 .row {
     gap: 20px;
     display: flex;

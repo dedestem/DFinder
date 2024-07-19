@@ -1,12 +1,38 @@
 #![cfg_attr(all(not(debug_assertions), target_os = "windows"), windows_subsystem = "windows")]
 use std::fs;
-use std::io;
+use std::io::{self, Read};
 use std::path::Path;
 use std::process::Command;
+use sha2::{Sha256, Digest};
+use hex;
 
 // Check if a given path exists.
 pub fn path_exists(path: &str) -> bool {
     Path::new(path).exists()
+}
+
+// Compute the SHA-256 hash of a file.
+pub fn file_hash(path: &str) -> Result<String, io::Error> {
+    // Open the file
+    let mut file = fs::File::open(Path::new(path))?;
+    
+    // Create a buffer to hold file data
+    let mut buffer = Vec::new();
+    
+    // Read the file contents into the buffer
+    file.read_to_end(&mut buffer)?;
+    
+    // Create a Sha256 instance
+    let mut hasher = Sha256::new();
+    
+    // Feed the file data into the hasher
+    hasher.update(&buffer);
+    
+    // Finalize the hash computation
+    let result = hasher.finalize();
+    
+    // Convert the hash to a hexadecimal string
+    Ok(hex::encode(result))
 }
 
 // Determine the type of a given path (file, directory, or none).
