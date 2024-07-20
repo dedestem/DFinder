@@ -1,5 +1,3 @@
-![Build](https://github.com/dedestem/dfinder/actions/workflows/tauricompilecheck.yml/badge.svg) 
-
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 
@@ -50,9 +48,3 @@ Build for installer .exe and .msi
 cargo tauri build
 ```
 
-<br>
-<br>
-<h1>Search functionality ideas:</h1> 
-   <br>
-   - Search on extension
-   <br>
