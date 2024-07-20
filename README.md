@@ -1,3 +1,5 @@
+![Build](https://github.com/dedestem/dfinder/actions/workflows/build.yml/badge.svg) 
+
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 
@@ -21,7 +23,6 @@ When using .exe you dont need admin
 
    WARNING SOURCECODE IS MOST TIMES STABLE.<br>
    IF NOT USE AND RELEASE SOURCECODE<br>
-   AND DO NOT CLONE<br>
 
 <br>
 <br>
