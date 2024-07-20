@@ -19,22 +19,32 @@ jobs:
     - name: Set up Rust
       uses: actions-rs/toolchain@v1
       with:
-        toolchain: '1.68.0'  # Specify the Rust version required by your Tauri app
+        toolchain: 'stable'  # Use stable Rust toolchain
         components: 'rustfmt' # Add additional components if needed
 
     - name: Install System Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgtk-3-dev pkg-config libssl-dev libsoup2.4-dev
+        sudo apt-get install -y \
+          libgtk-3-dev \
+          pkg-config \
+          libssl-dev \
+          libsoup2.4-dev \
+          libjavascriptcoregtk-4.0-dev \
+          libwebkit2gtk-4.0-dev \
+          build-essential \
+          curl
 
-    - name: Cache Cargo and Binaries
+    - name: Cache Cargo and System Dependencies
       uses: actions/cache@v3
       with:
         path: |
           ~/.cargo/registry
           ~/.cargo/git
           ~/.cargo/bin  # Cache the directory for Cargo-installed binaries
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          /usr/lib/x86_64-linux-gnu
+          /usr/include
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('Install System Dependencies') }}
         restore-keys: |
           ${{ runner.os }}-cargo-
 
