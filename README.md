@@ -1,4 +1,4 @@
-![Build](https://github.com/dedestem/dfinder/actions/workflows/build.yml/badge.svg) 
+![Build](https://github.com/dedestem/dfinder/blob/main/.github%2Fworkflows%2Ftauricompilecheck.yaml/badge.svg) 
 
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
