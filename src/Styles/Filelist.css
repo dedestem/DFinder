@@ -1,0 +1,25 @@
+/*File list*/
+#FileList {
+    font-family: sans-serif;
+    color: white;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+#tableBody > tr > td > button {
+    height: 30px;
+    width: fit-content;
+    
+    background: none;
+    border: none;
+    outline: none;
+
+    text-align: center;
+
+    font-family: sans-serif;
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+}

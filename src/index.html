@@ -3,14 +3,24 @@
     <head>
         <title>DFinder</title>
 
+        <!-- Metadata -->
         <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="index.css" />
+        <!-- Styles -->
+        <link rel="stylesheet" href="Styles/Global.css" />
+        <link rel="stylesheet" href="Styles/Navbar.css" />
+        <link rel="stylesheet" href="Styles/Homeui.css" />
+        <link rel="stylesheet" href="Styles/Filelist.css" />
+        <link rel="stylesheet" href="Styles/Opendialog.css" />
+        <link rel="stylesheet" href="Styles/Toggleswitches.css" />
+
+        <!-- Scripts -->
         <script type="module" src="index.js" defer></script>
     </head>
 
     <body>
+        <!-- Navbar -->
         <nav role="navigation">
             
             <button id="SettingsButton">
@@ -29,7 +39,9 @@
             <input placeholder="Search or Path" id="pathbar" />
         </nav>
 
+
         <main role="main">
+            <!-- Opendialog -->
             <div id="OpenDialog">
                 <h1 id="OpenDialogH1">FileName</h1>
                 <p id="OpenDialogP">Want to open FILENAME?</p>
@@ -41,6 +53,7 @@
                 <p id="openfilehash"></p>
             </div>
 
+            <!-- Filelist -->
             <div id="FileList">
                 <table id="directoryTable">
                     <thead>
@@ -54,6 +67,7 @@
                 </table>
             </div>
 
+            <!-- Homeui -->
             <div id="Homeui">
                 <nav>
                     <button id="desktopbutton">Desktop</button>
@@ -79,6 +93,7 @@
                 </div>
             </div>
 
+            <!-- Settingsui -->
             <div id="Settingsui">
                 <nav>
                     <button id="generalbutton">General</button>

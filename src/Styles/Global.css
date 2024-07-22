@@ -1,0 +1,35 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(36, 35, 35);
+    font-family: sans-serif;
+}
+
+p {
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.row {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.leftspacing30px {
+    padding-left: 30px;
+}
+
+
+
+/* Settings UI */
+#ui > .row > input {
+    background-color: rgba(0,0,0,0);
+    border-style: none;
+}

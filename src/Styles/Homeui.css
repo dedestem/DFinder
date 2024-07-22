@@ -1,0 +1,33 @@
+/*HomeUI*/
+#Homeui > .leftspacing30px > #Homeboxes > #RecentDiv {
+    background-color: rgb(49, 49, 49);
+    width: 300px;
+    height: 300px;
+
+    padding: 12px;
+    margin-top: 40px;
+
+    border-top-left-radius:12px;
+    border-top-right-radius:12px;
+    border-bottom-left-radius:12px;
+    border-bottom-right-radius:12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#Homeui > .leftspacing30px > #Homeboxes > #RecentDiv > h1 {
+    text-align: center;
+    margin-top: -5px;
+}
+
+#Homeui > .leftspacing30px > #Homeboxes > #RecentDiv > button {
+    text-align: left;
+    
+    background: none;
+    border: none;
+    outline: none;
+
+    color: white;
+}
