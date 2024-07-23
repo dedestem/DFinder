@@ -3,6 +3,11 @@ const { invoke } = window.__TAURI__.tauri;
 
 // Modules
 import { Save, Load } from './Data.js'
+import { elements } from './Elements.js';
+
+//
+// Background Colors
+//
 
 const backcolorInput = document.getElementById('backcolor');
 const transparencyInput = document.getElementById('transparency');
@@ -56,3 +61,17 @@ backcolorInput.addEventListener('input', updateColor);
 transparencyInput.addEventListener('input', updateColor);
 
 Loadcolors();
+
+//
+// Small buttons
+//
+
+function OpenDevTools() {
+    invoke('open_devtools')
+}
+
+
+//
+// Small buttons hooks
+//
+elements.devtoolsbtn.addEventListener("click", OpenDevTools)

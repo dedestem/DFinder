@@ -1,0 +1,14 @@
+button#devtoolsbtn {
+    background: none;
+    color: blue;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 0;
+}
+
+button#devtoolsbtn:hover {
+    color: darkblue;
+}

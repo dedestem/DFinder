@@ -35,4 +35,5 @@ export const elements = {
     ui: document.getElementById('ui'),
     general: document.getElementById('general'),
     webviewinfo: document.getElementById('Webviewinfo'),
+    devtoolsbtn: document.getElementById('devtoolsbtn'),
   };

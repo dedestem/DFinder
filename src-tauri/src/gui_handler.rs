@@ -83,6 +83,11 @@ fn toggle_decorations(window: Window, should_have_decorations: bool) {
     window.set_decorations(should_have_decorations).unwrap();
 }
 
+#[tauri::command]
+fn open_devtools(window: tauri::Window) {
+    window.open_devtools();
+}
+
 
 pub fn start() {
     tauri::Builder::default()
@@ -96,7 +101,8 @@ pub fn start() {
             get_home_path,
             search,
             get_file_hash,
-            toggle_decorations
+            toggle_decorations,
+            open_devtools
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");
