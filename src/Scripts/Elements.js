@@ -36,4 +36,6 @@ export const elements = {
     general: document.getElementById('general'),
     webviewinfo: document.getElementById('Webviewinfo'),
     devtoolsbtn: document.getElementById('devtoolsbtn'),
+    showhashbtn: document.getElementById(''),
+    opendirectlybtn: document.getElementById(''),
   };
