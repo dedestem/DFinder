@@ -4,7 +4,6 @@
 
 
 
-
 ## Supported os's
 Win11 \
 Win10 
@@ -15,7 +14,7 @@ When using .msi you need admin \
 When using .exe you dont need admin
 
 <br>
-
+<a href="https://youtu.be/9asUwgz0W-0">Preview video 0.2.0 | YT</a>
 
 <h1>How to build | On Windows</h1>
 
