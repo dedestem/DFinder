@@ -3,5 +3,13 @@ export function Save(Value, Key) {
 }
 
 export function Load(Key) {
-    return JSON.parse(localStorage.getItem(Key)) || [];
+    return JSON.parse(localStorage.getItem(Key)) || null;
 } 
+
+export function SaveRaw(Value, Key) {
+    localStorage.setItem(Key,Value);
+}
+
+export function LoadRaw(Key) {
+    return localStorage.getItem(Key) || null;
+}

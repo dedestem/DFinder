@@ -2,8 +2,9 @@
 const { invoke } = window.__TAURI__.tauri;
 
 // Modules
-import { Save, Load } from './Data.js'
+import { Save, Load, LoadRaw, SaveRaw } from './Data.js'
 import { elements } from './Elements.js';
+import { rgbToHex, toBoolean} from './Utils.js';
 
 //
 // Background Colors
@@ -26,15 +27,6 @@ function hexToRgba(hex, alpha) {
     const b = parseInt(hex.slice(5, 7), 16);
     savecolors(r,g,b,alpha)
     return `rgba(${r}, ${g}, ${b}, ${1})`; // change 1 to aplha when doing transparency dev
-}
-
-function rgbToHex(r, g, b) {
-    const toHex = (n) => {
-      let hex = n.toString(16);
-      return hex.length === 1 ? "0" + hex : hex;
-    };
-    
-    return "#" + toHex(r) + toHex(g) + toHex(b);
 }
 
 function savecolors(r,g,b,a) {
@@ -60,7 +52,6 @@ function Loadcolors() {
 backcolorInput.addEventListener('input', updateColor);
 transparencyInput.addEventListener('input', updateColor);
 
-Loadcolors();
 
 //
 // Small buttons
@@ -70,8 +61,44 @@ function OpenDevTools() {
     invoke('open_devtools')
 }
 
+function showhashbtnchanged() {
+    const value = elements.showhashbtn.checked
+    SaveRaw(value, "hashbtn")
+}
+
+function directlyopenbtnchanged() {
+    const value = elements.opendirectlybtn.checked
+    SaveRaw(value, "directopenbtn")
+}
+
+function loadsmallbuttons() {
+    console.log(LoadRaw("directopenbtn"));
+    
+    elements.opendirectlybtn.checked = toBoolean(LoadRaw("directopenbtn"));
+    elements.showhashbtn.checked = toBoolean(LoadRaw("hashbtn"));
+}
 
 //
 // Small buttons hooks
 //
 elements.devtoolsbtn.addEventListener("click", OpenDevTools)
+elements.showhashbtn.addEventListener('change', showhashbtnchanged)
+elements.opendirectlybtn.addEventListener('change', directlyopenbtnchanged)
+
+
+//Inits
+document.addEventListener('DOMContentLoaded', () => {
+    fresh();
+    loadsmallbuttons();
+    Loadcolors();
+});
+
+function fresh() {
+    if (Load("Fresh") == "Watermelon") {} else {
+        console.log("Fresh lets unfresh");
+        Save("Watermelon","Fresh")
+        hexToRgba(rgbToHex(35,35,35), 1)
+        SaveRaw(true, "directopenbtn")
+        SaveRaw(false, "hashbtn")
+    }
+}

@@ -51,8 +51,10 @@
                 <br>
                 <br>
                 <br>
-                <p>Filehash:</p>
-                <p id="openfilehash"></p>
+                <div id="Settingshashdiv">
+                    <p>Filehash:</p>
+                    <p id="openfilehash"></p>
+                </div>
             </div>
 
             <!-- Filelist -->
@@ -112,6 +114,7 @@
                             <input id="showfilehashbut" type="checkbox" checked>
                             <span class="slider round"></span>
                         </label>
+                        <label for="switch">// Do not directly open file when onclicked to use this</label>
                         <br>
                         <br>
                         <label for="switch">Directly open file when onclicked</label>
@@ -134,7 +137,7 @@
                         <input type="color" id="backcolor" value="#242323">
                         <br>
                         <br>
-                        <label for="transparency">Transparency:</label>
+                        <label for="transparency">WIP | Transparency:</label>
                         <input type="range" id="transparency" min="0" max="1" step="0.01" value="1">          
                     </div>
                     <div id="about">

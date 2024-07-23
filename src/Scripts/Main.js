@@ -4,8 +4,8 @@ const { invoke } = window.__TAURI__.tauri;
 // Getting modules
 import { addTorecent, getrecent } from './Recent.js';
 import { elements } from './Elements.js';
-import { getCookie, setCookie } from './Utils.js'
-import { Save, Load } from './Data.js'
+import { getCookie, setCookie, toBoolean } from './Utils.js'
+import { Save, Load, SaveRaw, LoadRaw } from './Data.js'
 
 // History tracking
 let pathHistory = [];
@@ -101,7 +101,6 @@ async function settingsbuttonhandle() {
 }
 
 function homebuttonhandle() {
-  console.log("HOME PRESSED");
   changePathbarValue("");
   console.log(pathHistory);
 }
@@ -258,13 +257,18 @@ function displayDirectoryContents(contents) {
 // Handle file navigation
 async function handleFile(path) {
   try {
-    const filename = path.split(/[\/\\]/).pop();
+    console.log(LoadRaw("directopenbtn"));
+    if (toBoolean(LoadRaw("directopenbtn")) == false) {
+      console.log("Then why this run?")
+      const filename = path.split(/[\/\\]/).pop();
 
-    elements.opendialogh1.textContent = filename;
-    elements.opendialogp.textContent = `Want to open ${filename}?`;
-    elements.opendialog_openfilehash.textContent = "Loading";
-    elements.opendialog_openfilehash.textContent = await invoke("get_file_hash", { path });
-    showOpenDialog();
+      elements.opendialogh1.textContent = filename;
+      elements.opendialogp.textContent = `Want to open ${filename}?`;
+      elements.opendialog_openfilehash.textContent = "Loading";
+      elements.opendialog_openfilehash.textContent = await invoke("get_file_hash", { path });
+      showOpenDialog();
+    }
+
   } catch (error) {
     console.error("Error handling file:", error);
     alert(`Error handling file: ${error.message}`);
@@ -328,11 +332,14 @@ async function updateUIForPath(path) {
       const contents = await invoke("list_dir", { path });
       displayDirectoryContents(contents);
     } else if (pathType === "File") {
-      
-      const filename = path.split(/[\/\\]/).pop();
-      elements.opendialogh1.textContent = filename;
-      elements.opendialogp.textContent = `Want to open ${filename}?`;
-      showOpenDialog();
+      if (toBoolean(LoadRaw("directopenbtn")) == false) {
+        const filename = path.split(/[\/\\]/).pop();
+        elements.opendialogh1.textContent = filename;
+        elements.opendialogp.textContent = `Want to open ${filename}?`;
+        showOpenDialog();
+      } else {
+        openFile();
+      }
     } else {
       handleInvalidPath();
     }
@@ -356,6 +363,12 @@ function showOpenDialog() {
   elements.opendialog.style.display = "block";
   elements.homeui.style.display = "none";
   elements.settingsui.style.display = "none";
+
+  if (toBoolean(LoadRaw("hashbtn")) == false) {
+    elements.settingshashdiv.style.display = "none";
+  } else {
+    elements.settingshashdiv.style.display = "block";
+  }
 }
 
 function showSettingsUI() {

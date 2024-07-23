@@ -21,7 +21,8 @@ export const elements = {
     opendialogp: document.getElementById('OpenDialogP'),
     opendialog_openfilebutton: document.getElementById('OpenFileButton'),
     opendialog_openfilehash: document.getElementById('openfilehash'),
-  
+    settingshashdiv: document.getElementById('Settingshashdiv'),
+
     //FilelistUI
     tableBody: document.getElementById('tableBody'),
     filelist: document.getElementById('FileList'),
@@ -36,6 +37,6 @@ export const elements = {
     general: document.getElementById('general'),
     webviewinfo: document.getElementById('Webviewinfo'),
     devtoolsbtn: document.getElementById('devtoolsbtn'),
-    showhashbtn: document.getElementById(''),
-    opendirectlybtn: document.getElementById(''),
+    showhashbtn: document.getElementById('showfilehashbut'),
+    opendirectlybtn: document.getElementById('opendirectlybut'),
   };

@@ -22,3 +22,16 @@ export function setCookie(name, value, daysToLive) {
   
     document.cookie = cookie;
 }
+
+export function rgbToHex(r, g, b) {
+  const toHex = (n) => {
+    let hex = n.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
+  
+  return "#" + toHex(r) + toHex(g) + toHex(b);
+}
+
+export function toBoolean(value) {
+  return value === 'true' || value === true;
+}
