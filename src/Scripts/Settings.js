@@ -1,3 +1,6 @@
+// Initialize Tauri API
+const { invoke } = window.__TAURI__.tauri;
+
 const backcolorInput = document.getElementById('backcolor');
 const transparencyInput = document.getElementById('transparency');
 
@@ -5,7 +8,9 @@ function updateColor() {
     const hex = backcolorInput.value;
     const alpha = transparencyInput.value;
     const rgbaColor = hexToRgba(hex, alpha);
+    invoke("toggle_decorations", { should_have_decorations: false });
     document.body.style.backgroundColor = rgbaColor;
+    invoke("toggle_decorations", { should_have_decorations: true });
     console.log(rgbaColor)
 }
 
