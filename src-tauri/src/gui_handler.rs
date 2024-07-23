@@ -76,6 +76,13 @@ fn get_file_hash(path: String) -> String {
     }
 }
 
+use tauri::Window;
+
+#[tauri::command]
+fn toggle_decorations(window: Window, should_have_decorations: bool) {
+    window.set_decorations(should_have_decorations).unwrap();
+}
+
 
 pub fn start() {
     tauri::Builder::default()
@@ -88,7 +95,8 @@ pub fn start() {
             print_metadata,
             get_home_path,
             search,
-            get_file_hash
+            get_file_hash,
+            toggle_decorations
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");

@@ -14,9 +14,11 @@
         <link rel="stylesheet" href="Styles/Filelist.css" />
         <link rel="stylesheet" href="Styles/Opendialog.css" />
         <link rel="stylesheet" href="Styles/Toggleswitches.css" />
+        <link rel="stylesheet" href="Styles/Settings.css" />
 
         <!-- Scripts -->
         <script type="module" src="Scripts/Main.js" defer></script>
+        <script type="module" src="Scripts/Settings.js" defer></script>
     </head>
 
     <body>
@@ -108,10 +110,13 @@
                         <h1>UI</h1>
                         <br>
                         <br>
-                        <div class="row">
-                            <p>WIP BROKEN | Background color:</p>
-                            <input type="color" id="backcolor" value="#ff0000">
-                        </div>
+
+                        <label for="backcolor">Color:</label>
+                        <input type="color" id="backcolor" value="#ff0000">
+                        <br>
+                        <br>
+                        <label for="transparency">Transparency:</label>
+                        <input type="range" id="transparency" min="0" max="1" step="0.01" value="1">          
                     </div>
                     <div id="about">
                         <h1>About</h1>
