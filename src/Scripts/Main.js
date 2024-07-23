@@ -2,7 +2,7 @@
 const { invoke } = window.__TAURI__.tauri;
 
 // Getting modules
-import { addTorecent, getrecent } from './recent.js';
+import { addTorecent, getrecent } from './Recent.js';
 import { elements } from './Elements.js';
 import { getCookie, setCookie } from './Utils.js'
 
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Settings UI Buttons
 async function opensettingsgeneral() {
-    elements.general.style.display = "block";
-    elements.ui.style.display = "none";
-    elements.about.style.display = "none";
+  elements.general.style.display = "block";
+  elements.ui.style.display = "none";
+  elements.about.style.display = "none";
 }
 
 async function opensettingsui() {
