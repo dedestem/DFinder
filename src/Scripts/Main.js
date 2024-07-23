@@ -5,6 +5,7 @@ const { invoke } = window.__TAURI__.tauri;
 import { addTorecent, getrecent } from './Recent.js';
 import { elements } from './Elements.js';
 import { getCookie, setCookie } from './Utils.js'
+import { Save, Load } from './Data.js'
 
 // History tracking
 let pathHistory = [];
@@ -159,11 +160,6 @@ async function handlePathbarInputChange(event) {
 }
 
 
-
-
-
-
-
 // Process functions
 
 
@@ -266,6 +262,7 @@ async function handleFile(path) {
 
     elements.opendialogh1.textContent = filename;
     elements.opendialogp.textContent = `Want to open ${filename}?`;
+    elements.opendialog_openfilehash.textContent = "Loading";
     elements.opendialog_openfilehash.textContent = await invoke("get_file_hash", { path });
     showOpenDialog();
   } catch (error) {
