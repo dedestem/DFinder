@@ -243,23 +243,53 @@ function displayDirectoryContents(contents) {
   elements.tableBody.innerHTML = ''; // Clear existing table rows
 
   contents.forEach(fileName => {
-    const button = document.createElement('button');
-    button.textContent = fileName;
-    button.addEventListener('click', () => {
+    // Create button for file navigation
+    const fileButton = document.createElement('button');
+    fileButton.textContent = fileName;
+    fileButton.addEventListener('click', () => {
       const currentPath = decodeURIComponent(getCookie("LastPath"));
       const nextPath = currentPath.endsWith('/') ? currentPath + fileName : `${currentPath}/${fileName}`;
       changePathbarValue(nextPath);
     });
 
-    const cell = document.createElement('td');
-    cell.appendChild(button);
+    // Create delete button with image
+    const delButton = document.createElement('button');
+    delButton.style.border = 'none'; // Remove default border
+    delButton.style.background = 'none'; // Remove default background
+    delButton.style.cursor = 'pointer'; // Change cursor to pointer
+
+    const delImg = document.createElement('img');
+    delImg.src = "Icons/trashbin.svg";
+    delButton.appendChild(delImg);
+
+    let isDeleted = false;
+
+    delButton.addEventListener('click', () => {
+      if (!isDeleted) {
+        delImg.src = "Icons/trashbin2.svg"; // Change image to trashbin2.svg
+        delImg.style.background = "red";
+        isDeleted = true; // Set flag to indicate the button has been clicked
+      } else {
+        console.log("DELETE"); // Print DELETE to the console on subsequent clicks
+      }
+    });
+
+    // Create table cells and append buttons
+    const fileCell = document.createElement('td');
+    fileCell.appendChild(fileButton);
+
+    const delCell = document.createElement('td');
+    delCell.appendChild(delButton);
 
     const row = document.createElement('tr');
-    row.appendChild(cell);
+    row.appendChild(fileCell);
+    row.appendChild(delCell);
 
     elements.tableBody.appendChild(row);
   });
 }
+
+
 
 // Handle file navigation
 async function handleFile(path) {
