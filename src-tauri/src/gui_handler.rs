@@ -93,6 +93,12 @@ fn get_drive_letters() -> Vec<String> {
    file_system::get_drive_letters()
 }
 
+#[tauri::command]
+fn delete_file(file_path: String) {
+    let del: Result<(), std::io::Error> = file_system::delete_file(&file_path);
+    println!("{:?}", del);
+}
+
 pub fn start() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
@@ -107,7 +113,8 @@ pub fn start() {
             get_file_hash,
             toggle_decorations,
             open_devtools,
-            get_drive_letters
+            get_drive_letters,
+            delete_file
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");

@@ -196,3 +196,9 @@ pub fn get_drive_letters() -> Vec<String> {
 
     drives
 }
+
+pub fn delete_file(file_path: &str) -> io::Result<()> {
+    std::fs::remove_file(file_path)?;
+    println!("File deleted successfully.");
+    Ok(())
+}

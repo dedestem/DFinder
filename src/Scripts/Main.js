@@ -269,8 +269,17 @@ function displayDirectoryContents(contents) {
         delImg.src = "Icons/trashbin2.svg"; // Change image to trashbin2.svg
         delImg.style.background = "red";
         isDeleted = true; // Set flag to indicate the button has been clicked
+
+        const currentPath = decodeURIComponent(getCookie("LastPath"));
+        const nextPath = currentPath.endsWith('/') ? currentPath + fileName : `${currentPath}/${fileName}`;
+        console.log(nextPath);
       } else {
         console.log("DELETE"); // Print DELETE to the console on subsequent clicks
+
+        const currentPath = decodeURIComponent(getCookie("LastPath"));
+        const filePath = currentPath.endsWith('/') ? currentPath + fileName : `${currentPath}/${fileName}`;
+        
+        invoke("delete_file", { filePath });
       }
     });
 
