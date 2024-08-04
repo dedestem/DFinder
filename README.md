@@ -1,4 +1,4 @@
-[![Build Tauri App](https://github.com/dedestem/dfinder/actions/workflows/tauricompilecheck.yaml/badge.svg)](https://github.com/dedestem/dfinder/actions/workflows/tauricompilecheck.yaml)
+
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 
