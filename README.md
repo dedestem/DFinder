@@ -1,7 +1,9 @@
+[![Build Tauri App](https://github.com/dedestem/dfinder/actions/workflows/tauricompilecheck.yaml/badge.svg)](https://github.com/dedestem/dfinder/actions/workflows/tauricompilecheck.yaml)
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 
-
+## Contributing
+Feel free to contribute
 
 
 ## Supported os's
@@ -14,8 +16,10 @@ When using .msi you need admin \
 When using .exe you dont need admin
 
 <br>
-
-
+<h3>Preview video 0.2.0</h3>
+<a href="https://youtu.be/9asUwgz0W-0">Preview video 0.2.0 | YT</a>
+<br>
+<br>
 <h1>How to build | On Windows</h1>
 
 
