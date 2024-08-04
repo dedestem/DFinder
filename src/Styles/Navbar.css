@@ -1,34 +1,46 @@
-/*NAV*/
+/* NAV */
 nav {
     width: calc(100% - 40px);
     height: 60px;
-
     padding-left: 40px;
-    gap: 40px;
     display: flex;
     align-items: center;
-
+    gap: 25px;
     background-color: black;
 }
 
 nav > button {
     height: 30px;
     width: fit-content;
-    
     background: none;
     border: none;
     outline: none;
-
     text-align: center;
-
     font-family: sans-serif;
     font-weight: bold;
-
     color: white;
 }
 
 nav > button:hover {
     border-bottom: 2px solid blue;
+    opacity: 0.8;
+}
+
+nav > #navright > button {
+    height: 30px;
+    width: fit-content;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+nav > #navright > button:hover {
+    border-bottom: 2px solid blue;
+    opacity: 0.8;
 }
 
 nav > #history {
@@ -41,7 +53,6 @@ nav > #history > button {
     display: inline-block;
     width: 25px;
     height: 25px;
-    
     border: 2px solid #000;
     color: #000; 
     border-radius: 50%;
@@ -55,8 +66,11 @@ nav > input {
     border: none;
     outline: none;
     border-radius: 10px;
-
     background: white;
-
     width: 300px;
+}
+
+#navright {
+    margin-left: auto;
+    padding-right: 20px;
 }

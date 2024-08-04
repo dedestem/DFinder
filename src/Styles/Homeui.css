@@ -103,4 +103,5 @@
 
 #PersonButton:hover {
     opacity: 0.8;
+    border-bottom: 2px solid blue;
 }

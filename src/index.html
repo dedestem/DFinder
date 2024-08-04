@@ -24,11 +24,6 @@
     <body>
         <!-- Navbar -->
         <nav role="navigation">
-            
-            <button id="SettingsButton">
-                <img src="Icons/settings.svg" alt="SettingsButton as an image">
-            </button>
-
             <button id="HomeButton">
                 <img src="Icons/home.svg" alt="HomeButton as an image">
             </button>
@@ -39,6 +34,12 @@
                 <button id="historyright">></button>
             </div>
             <input placeholder="Search or Path" id="pathbar" />
+
+            <div id="navright">
+                <button id="SettingsButton">
+                    <img src="Icons/settings.svg" alt="SettingsButton as an image">
+                </button>
+            </div>
         </nav>
 
 
@@ -65,16 +66,13 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody">
-                        
-                    </tbody>
+                    <tbody id="tableBody"></tbody>
                 </table>
             </div>
 
             <!-- Homeui -->
             <div id="Homeui">
                 <nav>
-                    <div class="row">
                         <div id="Drives">
                             <button id="DriveButton">
                                 <img src="Icons/harddrive.svg" alt="Hover to switch drives">
@@ -85,7 +83,6 @@
                         <button id="PersonButton">
                             <img src="Icons/person.svg" alt="SettingsButton as an image">
                         </button>
-                    </div>
 
 
                     <button id="desktopbutton">Desktop</button>
@@ -98,7 +95,7 @@
                 <br>
                 
                 <div class="leftspacing30px">
-                    <p>Welcome to version 0.2.0</p>
+                    <p>Welcome to version 0.2.5</p>
 
                     <br>
                     <br>
@@ -157,7 +154,7 @@
                     <div id="about">
                         <h1>About</h1>
                         <br>
-                        <p>Welcome to version 0.2.0</p>
+                        <p>Version 0.2.5</p>
                         <br>
                         <p>Running on: Webview</p>
                         <p id="Webviewinfo">Error while loading webview info</p>
