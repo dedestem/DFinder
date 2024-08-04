@@ -15,7 +15,8 @@ export const elements = {
     picturesbutton: document.getElementById('picturesbutton'),
     videosbutton: document.getElementById('videosbutton'),
     drivescontent: document.getElementById('Drives-content'),
-  
+    personbutton: document.getElementById('PersonButton'),
+
     //OpenUI
     opendialog: document.getElementById('OpenDialog'),
     opendialogh1: document.getElementById('OpenDialogH1'),

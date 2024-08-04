@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elements.downloadsbutton.addEventListener("click", downloadsbuttonhandle);
   elements.picturesbutton.addEventListener("click", picturesbuttonhandle);
   elements.videosbutton.addEventListener("click", videosbuttonhandle);
-
+  elements.personbutton.addEventListener("click", personbuttonhandle);
   //Opendialog
   elements.opendialog_openfilebutton.addEventListener("click", openFile);
 
@@ -64,6 +64,12 @@ async function opensettingsabout() {
 }
 
 //HomeUI Buttons
+async function personbuttonhandle() {
+  const homepath = await invoke("get_home_path");
+  changePathbarValue(homepath);
+}
+
+
 async function desktopbuttonhandle() {
   const homepath = await invoke("get_home_path");
   changePathbarValue(homepath + "/Desktop");

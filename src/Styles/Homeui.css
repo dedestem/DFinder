@@ -33,7 +33,7 @@
 }
 
 
-
+/* Drives */
 
 .Drives {
     position: relative;
@@ -79,5 +79,28 @@
 }
 
 #DriveButton:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Person button */
+#PersonButton {
+    height: 30px;
+    width: fit-content;
+    
+    background: none;
+    border: none;
+    outline: none;
+
+    text-align: center;
+
+    font-family: sans-serif;
+    font-weight: bold;
+
+    color: white;
+}
+
+#PersonButton:hover {
     opacity: 0.8;
 }
