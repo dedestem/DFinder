@@ -15,7 +15,7 @@ fn path_type(path: String) -> String {
     file_system::path_type(&path).to_string()
 }
 
-#[tauri::command]
+#[tauri::command(async)]
 fn open_file(path: String) -> Result<(), String> {
     file_system::open_file(&path).map_err(|e| format!("Failed to open file: {}", e))
 }
@@ -70,7 +70,7 @@ fn get_file_hash(path: String) -> String {
     match file_system::file_hash(&path) {
         Ok(value) => value,
         Err(e) => {
-            eprintln!("Collecting hash encountered an error while battling the opponement used: {}", e);
+            println!("Collecting hash encountered an error while battling the opponement used: {}", e);
             String::new()
         },
     }
