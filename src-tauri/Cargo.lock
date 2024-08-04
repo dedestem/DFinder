@@ -564,6 +564,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "walkdir",
+ "winapi",
 ]
 
 [[package]]

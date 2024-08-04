@@ -88,6 +88,10 @@ fn open_devtools(window: tauri::Window) {
     window.open_devtools();
 }
 
+#[tauri::command]
+fn get_drive_letters() -> Vec<String> {
+   file_system::get_drive_letters()
+}
 
 pub fn start() {
     tauri::Builder::default()
@@ -102,7 +106,8 @@ pub fn start() {
             search,
             get_file_hash,
             toggle_decorations,
-            open_devtools
+            open_devtools,
+            get_drive_letters
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");

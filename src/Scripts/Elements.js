@@ -14,6 +14,7 @@ export const elements = {
     downloadsbutton: document.getElementById('downloadsbutton'),
     picturesbutton: document.getElementById('picturesbutton'),
     videosbutton: document.getElementById('videosbutton'),
+    drivescontent: document.getElementById('Drives-content'),
   
     //OpenUI
     opendialog: document.getElementById('OpenDialog'),
@@ -39,4 +40,5 @@ export const elements = {
     devtoolsbtn: document.getElementById('devtoolsbtn'),
     showhashbtn: document.getElementById('showfilehashbut'),
     opendirectlybtn: document.getElementById('opendirectlybut'),
+
   };

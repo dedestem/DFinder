@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize defaults
   changePathbarValue("", true); 
+  initdriveletters();
 });
 
 // Settings UI Buttons
@@ -347,6 +348,23 @@ async function updateUIForPath(path) {
     console.error("Error updating UI for path:", error);
     alert(`Error updating UI for path: ${error.message}`);
   }
+}
+
+async function initdriveletters() {
+  const drivetable = await invoke("get_drive_letters");
+  console.log(drivetable)
+
+  drivetable.forEach(drive => {
+    console.log(drive)
+    const button = document.createElement('button');
+    button.textContent = drive;
+    button.addEventListener('click', () => {
+      const nextPath = `${drive}`;
+      changePathbarValue(nextPath);
+    });
+
+    elements.drivescontent.appendChild(button);
+  });
 }
 
 // Show file list and hide open dialog

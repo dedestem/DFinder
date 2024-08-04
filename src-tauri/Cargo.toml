@@ -19,6 +19,7 @@ rayon = "1.10.0"
 walkdir = "2.5.0"
 sha2 = "0.10.8"
 hex = "0.4.3"
+winapi = "0.3.9"
 
 
 [features]

@@ -5,6 +5,10 @@ use std::path::Path;
 use std::process::Command;
 use sha2::{Sha256, Digest};
 use hex;
+use winapi::um::fileapi::GetLogicalDriveStringsW;
+use winapi::um::winnt::WCHAR;
+use std::ffi::OsString;
+use std::os::windows::ffi::OsStringExt;
 
 // Check if a given path exists.
 pub fn path_exists(path: &str) -> bool {
@@ -137,7 +141,7 @@ pub fn print_metadata(path: &str) {
 }
 
 // Format file size into a human-readable string.
-fn format_file_size(size: u64) -> String {
+pub fn format_file_size(size: u64) -> String {
     const KB: u64 = 1024;
     const MB: u64 = 1024 * KB;
     const GB: u64 = 1024 * MB;
@@ -154,4 +158,41 @@ fn format_file_size(size: u64) -> String {
     } else {
         format!("{} bytes", size)
     }
+}
+
+pub fn get_drive_letters() -> Vec<String> {
+    // Allocate a buffer for the drive strings
+    let buffer_size = 1024;
+    let mut buffer: Vec<WCHAR> = vec![0; buffer_size];
+
+    let mut drives = Vec::new();
+
+    unsafe {
+        // Get the logical drive strings
+        let length = GetLogicalDriveStringsW(buffer_size as u32, buffer.as_mut_ptr());
+        
+        if length == 0 {
+            eprintln!("Failed to get drive strings");
+            return drives;
+        }
+
+        // Convert buffer to a vector of strings
+        let drive_strings: Vec<OsString> = buffer
+            .split(|&c| c == 0)
+            .filter_map(|s| {
+                if !s.is_empty() {
+                    Some(OsString::from_wide(s))
+                } else {
+                    None
+                }
+            })
+            .collect();
+        
+        // Add each drive letter to the drives vector
+        for drive in drive_strings {
+            drives.push(drive.to_string_lossy().to_string());
+        }
+    }
+
+    drives
 }
