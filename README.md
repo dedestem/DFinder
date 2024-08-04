@@ -2,7 +2,7 @@
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 
-##Contributing\
+## Contributing\
 Feel free to contribute
 
 
