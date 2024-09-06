@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const name = prompt("Please enter folder name:");
         var filePath = decodeURIComponent(getCookie("LastPath"));
 
-        filePath = filePath + name;
+        filePath = filePath + "/" + name;
         console.log(name);
         console.log(filePath);
         invoke("create_directory", { filePath: filePath });
