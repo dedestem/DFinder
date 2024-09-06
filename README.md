@@ -32,7 +32,7 @@ When using .exe you dont need admin
 Install git and rust and tauri.
 ```batch
 winget install --id Git.Git -e --source winget
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe Run this installer of rust
 cargo install tauri-cli
 ```
 
