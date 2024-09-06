@@ -100,6 +100,10 @@ async function videosbuttonhandle() {
   changePathbarValue(homepath + "/Videos");
 };
 
+function refreshpage() {
+  const currentPath = decodeURIComponent(getCookie("LastPath"));
+  changePathbarValue(currentPath, false);
+}
 
 //navbar Buttons
 async function refreshbuttonhandle() {
@@ -112,8 +116,7 @@ async function refreshbuttonhandle() {
     element.style.transform = "rotate(0deg)"; // Reset to 0 degrees
   }, 2000); // Match the transition duration (2 seconds)
   
-  const currentPath = decodeURIComponent(getCookie("LastPath"));
-  changePathbarValue(currentPath, false);
+  refreshpage();
 }
 
 async function settingsbuttonhandle() {
@@ -295,10 +298,7 @@ function displayDirectoryContents(contents) {
         invoke("delete_file", { filePath });
 
         // Refresh page to show the changes
-        setTimeout(function() {
-          const currentPath = decodeURIComponent(getCookie("LastPath"));
-          changePathbarValue(currentPath, false);
-        }, 250); 
+        refreshpage();
       }
     });
 
