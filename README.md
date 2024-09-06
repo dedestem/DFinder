@@ -3,8 +3,8 @@
 ### An fast and opensource filebrowser written in rust. 
 
 ## Contributing
-Feel free to contribute
-
+Feel free to contribute(Your pull request stil may get denied!)
+Roadmap: https://trello.com/b/DSGNLd6k/dfinder
 
 ## Supported os's
 Win11 \
