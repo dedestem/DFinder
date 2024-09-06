@@ -1,6 +1,7 @@
 // Initialize Tauri API
 const { invoke } = window.__TAURI__.tauri;
 
+
 // Getting modules
 import { addTorecent, getrecent } from './Recent.js';
 import { elements } from './Elements.js';
@@ -104,7 +105,7 @@ async function videosbuttonhandle() {
   changePathbarValue(homepath + "/Videos");
 };
 
-function refreshpage() {
+export function refreshpage() {
   const currentPath = decodeURIComponent(getCookie("LastPath"));
   changePathbarValue(currentPath, false);
 }
