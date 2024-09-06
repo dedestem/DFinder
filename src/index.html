@@ -19,6 +19,9 @@
         <!-- Scripts -->
         <script type="module" src="Scripts/Main.js" defer></script>
         <script type="module" src="Scripts/Settings.js" defer></script>
+
+        <!-- Lazy Scripts -->
+        <script type="module" src="Scripts/Lazy/AddDropDown.js" defer></script>
     </head>
 
     <body>
@@ -39,6 +42,12 @@
                 <button id="AddButton">
                     <img src="Icons/plusicon.svg" alt="Add file">
                 </button>
+                <div id="Add">
+                    <div id="Add-content">
+                        <button>Txt</button>
+                        <button>Folder</button>
+                    </div> 
+                </div>
                 <button id="RefreshButton">
                     <img src="Icons/Refresh.svg" alt="Refresh as an image">
                 </button>

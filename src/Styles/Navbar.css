@@ -73,4 +73,39 @@ nav > input {
 #navright {
     margin-left: auto;
     padding-right: 20px;
+    display: flex;
+}
+
+
+/* Add menu */
+.Add {
+    position: relative;
+    display: inline-block;
+}
+
+#AddButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px; /* Zorg ervoor dat de tekst zichtbaar is */
+}
+
+#Add-content {
+    visibility: hidden;
+    position: absolute;
+    background-color: #0000008e;
+    width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+#Add-content button {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background: none;
+    border: none;
+    outline: none;
 }
