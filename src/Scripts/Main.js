@@ -11,7 +11,6 @@ import { Save, Load, SaveRaw, LoadRaw } from './Data.js'
 let pathHistory = [];
 let currentHistoryIndex = -1;
 
-
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   //Nav UI
@@ -280,6 +279,12 @@ function displayDirectoryContents(contents) {
         const filePath = currentPath.endsWith('/') ? currentPath + fileName : `${currentPath}/${fileName}`;
         
         invoke("delete_file", { filePath });
+
+        // Refresh page to show the changes
+        setTimeout(function() {
+          const currentPath = decodeURIComponent(getCookie("LastPath"));
+          changePathbarValue(currentPath, false);
+        }, 250); 
       }
     });
 
