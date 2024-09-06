@@ -77,7 +77,6 @@ function loadsmallbuttons() {
 //
 // Small buttons hooks
 //
-elements.devtoolsbtn.addEventListener("click", OpenDevTools)
 elements.showhashbtn.addEventListener('change', showhashbtnchanged)
 elements.opendirectlybtn.addEventListener('change', directlyopenbtnchanged)
 

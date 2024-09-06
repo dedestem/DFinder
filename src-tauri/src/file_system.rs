@@ -1,5 +1,6 @@
 #![cfg_attr(all(not(debug_assertions), target_os = "windows"), windows_subsystem = "windows")]
 use std::fs;
+use std::fs::File;
 use std::io::{self, Read};
 use std::path::Path;
 use std::process::Command;
@@ -219,4 +220,14 @@ pub fn delete(path: &str) -> io::Result<()> {
         println!("Invalid path: '{}'. It is neither a file nor a folder.", path.display());
     }
     Ok(())
+}
+
+pub fn create_file(parent_path: &str, file_name: &str) {
+    // Combine the parent path with the file name
+    let path = Path::new(parent_path).join(file_name);
+    
+    // Create the file at the specified path
+    let _ = File::create(&path);
+
+    println!("File created at {}", path.display());
 }
