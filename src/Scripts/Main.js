@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize defaults
   changePathbarValue("", true); 
   initdriveletters();
+  elements.addbutton.style.visibility = "hidden";
 });
 
 // Settings UI Buttons
@@ -47,12 +48,14 @@ async function opensettingsgeneral() {
   elements.general.style.display = "block";
   elements.ui.style.display = "none";
   elements.about.style.display = "none";
+  elements.addbutton.style.visibility = "hidden";
 }
 
 async function opensettingsui() {
   elements.general.style.display = "none";
   elements.ui.style.display = "block";
   elements.about.style.display = "none";
+  elements.addbutton.style.visibility = "hidden";
 }
 
 async function opensettingsabout() {
@@ -61,6 +64,7 @@ async function opensettingsabout() {
   elements.about.style.display = "block";
   console.log(navigator.userAgent);
   elements.webviewinfo.innerText = navigator.userAgent
+  elements.addbutton.style.visibility = "hidden";
 }
 
 //HomeUI Buttons
@@ -120,10 +124,12 @@ async function refreshbuttonhandle() {
 }
 
 async function settingsbuttonhandle() {
+  elements.addbutton.style.visibility = "hidden";
   showSettingsUI();
 }
 
 function homebuttonhandle() {
+  elements.addbutton.style.visibility = "hidden";
   changePathbarValue("");
   console.log(pathHistory);
 }
@@ -156,6 +162,8 @@ async function handlePathbarInputChange(event) {
     showhomeui();
     return;
   }
+
+  elements.addbutton.style.visibility = "visible";
 
   try {
     const pathExists = await invoke("path_exists", { path });
