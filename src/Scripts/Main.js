@@ -278,13 +278,12 @@ function displayDirectoryContents(contents) {
     delImg.src = "Icons/trashbin.svg";
     delButton.appendChild(delImg);
 
-    let isDeleted = false;
+    let isDeletedclicked = false;
 
     delButton.addEventListener('click', () => {
-      if (!isDeleted) {
-        delImg.src = "Icons/trashbin2.svg"; // Change image to trashbin2.svg
-        delImg.style.background = "red";
-        isDeleted = true; // Set flag to indicate the button has been clicked
+      if (!isDeletedclicked) {
+        delImg.src = "Icons/trashbin2red.svg"; // Change image to trashbin2.svg
+        isDeletedclicked = true; // Set flag to indicate the button has been clicked
 
         const currentPath = decodeURIComponent(getCookie("LastPath"));
         const nextPath = currentPath.endsWith('/') ? currentPath + fileName : `${currentPath}/${fileName}`;
