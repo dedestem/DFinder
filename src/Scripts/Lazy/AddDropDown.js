@@ -41,6 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         refreshpage();
     });
+
+    document.getElementById("LazyAddCustom").addEventListener('click', function() {
+        console.log("TXT");
+        var name = prompt("Please enter filename+extension:");
+        const filePath = decodeURIComponent(getCookie("LastPath"));
+        console.log(name);
+        console.log(filePath);
+        invoke("create_file", { filePath: filePath, fileName: name });
+
+        refreshpage();
+    });
 });
 
 function getCookie(name) {
