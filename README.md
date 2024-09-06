@@ -2,6 +2,7 @@
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
 Roadmap: https://trello.com/b/DSGNLd6k/dfinder
+Icons source: https://fonts.google.com/icons
 
 ## Supported os's
 Win11 \
