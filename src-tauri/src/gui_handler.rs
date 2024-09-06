@@ -95,7 +95,7 @@ fn get_drive_letters() -> Vec<String> {
 
 #[tauri::command]
 fn delete_file(file_path: String) {
-    let del: Result<(), std::io::Error> = file_system::delete_file(&file_path);
+    let del: Result<(), std::io::Error> = file_system::delete(&file_path);
     println!("{:?}", del);
 }
 
