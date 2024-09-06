@@ -57,10 +57,6 @@ transparencyInput.addEventListener('input', updateColor);
 // Small buttons
 //
 
-function OpenDevTools() {
-    invoke('open_devtools')
-}
-
 function showhashbtnchanged() {
     const value = elements.showhashbtn.checked
     SaveRaw(value, "hashbtn")

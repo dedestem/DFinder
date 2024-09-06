@@ -84,11 +84,6 @@ fn toggle_decorations(window: Window, should_have_decorations: bool) {
 }
 
 #[tauri::command]
-fn open_devtools(window: tauri::Window) {
-    window.open_devtools();
-}
-
-#[tauri::command]
 fn get_drive_letters() -> Vec<String> {
    file_system::get_drive_letters()
 }
@@ -112,7 +107,6 @@ pub fn start() {
             search,
             get_file_hash,
             toggle_decorations,
-            open_devtools,
             get_drive_letters,
             delete_file
         ])
