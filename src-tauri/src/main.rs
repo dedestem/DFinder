@@ -5,7 +5,7 @@ pub mod systeminfo;
 pub mod search;
 
 fn main() {
-    println!("Running Version 0.2.0");
+    println!("Running Version 0.2.5");
     println!("Running tests!");
     systeminfo::iswindows();
     println!("Starting Main Program");
