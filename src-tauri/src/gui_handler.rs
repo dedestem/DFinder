@@ -99,6 +99,11 @@ fn create_file(file_path: String, file_name: String) {
     file_system::create_file(&file_path, &file_name)
 }
 
+#[tauri::command]
+fn create_directory(file_path: String) {
+    file_system::create_directory(&file_path)
+}
+
 pub fn start() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
@@ -114,7 +119,8 @@ pub fn start() {
             toggle_decorations,
             get_drive_letters,
             delete_file,
-            create_file
+            create_file,
+            create_directory
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application!");

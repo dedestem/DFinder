@@ -231,3 +231,10 @@ pub fn create_file(parent_path: &str, file_name: &str) {
 
     println!("File created at {}", path.display());
 }
+
+pub fn create_directory(path: &str) {
+    // Create the directory and any necessary parent directories
+    create_dir_all(path);
+
+    println!("Directory created at {}", path);
+}
