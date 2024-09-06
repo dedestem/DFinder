@@ -234,6 +234,9 @@ function DisplaySearchResults(contents) {
   });
 }
 
+function removeAfterLastSlash(str) {
+  return str.substring(0, str.lastIndexOf('/'));
+}
 
 // Handle opening a file
 async function openFile() {
@@ -244,11 +247,14 @@ async function openFile() {
     }
 
     await invoke("open_file", { path });
+    changePathbarValue(removeAfterLastSlash(path), false);
   } catch (error) {
     console.error("Error opening file:", error);
     alert(`Error opening file: ${error.message}`);
   }
 }
+
+
 
 
 // Handle folder navigation
