@@ -1,5 +1,6 @@
 export const elements = {
     //NavbarUI
+    refreshbutton: document.getElementById("RefreshButton"),
     settingsbutton: document.getElementById("SettingsButton"),
     homebutton: document.getElementById("HomeButton"),
     historyleftbut: document.getElementById("historyleft"),

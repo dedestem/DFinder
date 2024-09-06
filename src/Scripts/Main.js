@@ -14,6 +14,7 @@ let currentHistoryIndex = -1;
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   //Nav UI
+  elements.refreshbutton.addEventListener("click", refreshbuttonhandle);
   elements.settingsbutton.addEventListener("click", settingsbuttonhandle);
   elements.homebutton.addEventListener("click", homebuttonhandle);
   elements.historyleftbut.addEventListener("click", historyleft);
@@ -100,8 +101,21 @@ async function videosbuttonhandle() {
 };
 
 
-
 //navbar Buttons
+async function refreshbuttonhandle() {
+  const element = elements.refreshbutton;
+  element.style.transition = "transform 2s ease"; // Smooth transition
+  element.style.transform = "rotate(360deg)"; // Rotate 360 degrees
+
+  setTimeout(() => {
+    element.style.transition = "none"; // Disable transition
+    element.style.transform = "rotate(0deg)"; // Reset to 0 degrees
+  }, 2000); // Match the transition duration (2 seconds)
+  
+  const currentPath = decodeURIComponent(getCookie("LastPath"));
+  changePathbarValue(currentPath, false);
+}
+
 async function settingsbuttonhandle() {
   showSettingsUI();
 }
