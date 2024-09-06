@@ -198,7 +198,25 @@ pub fn get_drive_letters() -> Vec<String> {
 }
 
 pub fn delete_file(file_path: &str) -> io::Result<()> {
-    std::fs::remove_file(file_path)?;
-    println!("File deleted successfully.");
+    fs::remove_file(file_path)?;
+    println!("File '{}' deleted successfully.", file_path);
+    Ok(())
+}
+
+pub fn delete_folder(folder_path: &str) -> io::Result<()> {
+    fs::remove_dir_all(folder_path)?;
+    println!("Folder '{}' deleted successfully.", folder_path);
+    Ok(())
+}
+
+pub fn delete(path: &str) -> io::Result<()> {
+    let path = Path::new(path);
+    if path.is_file() {
+        delete_file(path.to_str().unwrap())?;
+    } else if path.is_dir() {
+        delete_folder(path.to_str().unwrap())?;
+    } else {
+        println!("Invalid path: '{}'. It is neither a file nor a folder.", path.display());
+    }
     Ok(())
 }
