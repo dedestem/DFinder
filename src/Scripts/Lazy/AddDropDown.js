@@ -21,10 +21,23 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("TXT");
         var name = prompt("Please enter filename:");
         const filePath = decodeURIComponent(getCookie("LastPath"));
-        name = name + ".txt"
+        name = name + ".txt";
         console.log(name);
         console.log(filePath);
         invoke("create_file", { filePath: filePath, fileName: name });
+
+        refreshpage();
+    });
+
+    document.getElementById("LazyAddFolder").addEventListener('click', function() {
+        console.log("Folder");
+        const name = prompt("Please enter folder name:");
+        var filePath = decodeURIComponent(getCookie("LastPath"));
+
+        filePath = filePath + name;
+        console.log(name);
+        console.log(filePath);
+        invoke("create_directory", { filePath: filePath });
 
         refreshpage();
     });

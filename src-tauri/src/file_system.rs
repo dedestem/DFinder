@@ -1,5 +1,6 @@
 #![cfg_attr(all(not(debug_assertions), target_os = "windows"), windows_subsystem = "windows")]
 use std::fs;
+use std::fs::create_dir_all;
 use std::fs::File;
 use std::io::{self, Read};
 use std::path::Path;
@@ -234,7 +235,7 @@ pub fn create_file(parent_path: &str, file_name: &str) {
 
 pub fn create_directory(path: &str) {
     // Create the directory and any necessary parent directories
-    create_dir_all(path);
+    let _ = create_dir_all(path);
 
     println!("Directory created at {}", path);
 }
