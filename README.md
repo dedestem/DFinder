@@ -50,3 +50,6 @@ Build for installer .exe and .msi
 cargo tauri build
 ```
 
+
+Warning
+DFinder 0.2.5 is broken
