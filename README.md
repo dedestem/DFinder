@@ -1,3 +1,6 @@
+# NOTICE
+   CODE MOVED TO GITTEA - THIS REPO IS AN BACKUP!
+
 
 # DFINDER
 ### An fast and opensource filebrowser written in rust. 
